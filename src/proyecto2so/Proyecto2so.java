@@ -16,6 +16,7 @@ public class Proyecto2so {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
     }
     
 }
