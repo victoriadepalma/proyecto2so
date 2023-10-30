@@ -15,17 +15,21 @@ public class Personaje  {
     
    
     
-    int id;
-    String nombre;
-    int habilidades;
-    int puntosdevida;
-    int fuerza; 
-    int agilidad; 
-    int nivel;
-    int counter;
-    private Personaje siguiente;
+    public int id;
+    public String nombre;
+    public int habilidades;
+    public int puntosdevida;
+    public int fuerza; 
+    public int agilidad; 
+    public int nivel;
+    public int counter;
+    public Personaje siguiente;
+
     
-    public Personaje(int id, String nombre, int habilidades, int puntosdevida, int fuerza, int agilidad, int nivel, int counter, Personaje siguiente ){
+    
+
+    
+    public Personaje(int id, String nombre){
     
     this.id = id;
     this.nombre = nombre;
@@ -33,11 +37,13 @@ public class Personaje  {
     this.puntosdevida = tieneHabilidad(70);
     this.fuerza = tieneHabilidad(50);
     this.agilidad = tieneHabilidad(40);
-    this.siguiente = siguiente;
-    this.counter = counter;
+    this.siguiente = null;
+    this.counter = 0;
+    this.nivel = asignarNivel(this.habilidades, this.puntosdevida, this.fuerza, this.agilidad, this.nivel);
             }
+
     
-    public void asignarNivel(int habilidaes, int puntosdevida, int fuerza, int agilidad, int nivel){
+    public int asignarNivel(int habilidades, int puntosdevida, int fuerza, int agilidad, int nivel){
         
         switch (this.habilidades + this.puntosdevida + this.fuerza + this.agilidad) {
             case 4:
@@ -50,8 +56,14 @@ public class Personaje  {
                 this.nivel = 3;
                 break;
         }
+        return this.nivel;
 
     
+    }
+    
+    public int asignarId(int id){
+        return id++;
+        
     }
     
        public int tieneHabilidad(int max){

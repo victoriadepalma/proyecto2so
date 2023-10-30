@@ -10,13 +10,68 @@ package proyecto2so;
  * @author victoriadepalma
  */
 public class Interfaz extends javax.swing.JFrame {
+    public static String[] namesZ=new String[10];
+    public static String[] namesST=new String[10];
+    Personaje[] personajesZ=new Personaje[100];
+    Personaje[] personajesST=new Personaje[100];
+    int contadorId=0;
+    
+    
+    
+        
+    
+   
+    
 
     /**
      * Creates new form Interfaz
      */
     public Interfaz() {
         initComponents();
+        namesZ[0]="Link";
+        namesZ[1]="Princesa Zelda";
+        namesZ[2]="Ganondorf";
+        namesZ[3]="Impa";
+        namesZ[4]="Darunia";
+        namesZ[5]="Tingle";
+        namesZ[6]="Navi";
+        namesZ[7]="Sheik";
+        namesZ[8]="Epona";
+        namesZ[9]="Rauru";
+        
+        namesST[0]="Ryu";
+        namesST[1]="M.Bison";
+        namesST[2]="Zangief";
+        namesST[3]="Akuma";
+        namesST[4]="Guile";
+        namesST[5]="Gouken";
+        namesST[6]="Chun-Li";
+        namesST[7]="Menat";
+        namesST[8]="Juni";
+        namesST[9]="Blanka";
+    
+        
     }
+    
+    public void inicializarPersonaje(){
+        for (int i=0;i<namesZ.length;i++){
+            personajesZ[i]=new Personaje(contadorId, namesZ[i]);
+            this.contadorId++;
+            
+           
+        }
+          for (int i=0;i<namesST.length;i++){
+            
+
+            personajesST[i]=new Personaje(contadorId, namesST[i]);
+            this.contadorId++;
+            
+           
+        }
+        
+        
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +100,7 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        Iniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,6 +179,14 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel13.setText("jLabel13");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
+        Iniciar.setText("jButton1");
+        Iniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IniciarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,6 +206,26 @@ public class Interfaz extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
+        // TODO add your handling code here:
+        this.inicializarPersonaje();
+        
+  
+        for (int i=0; i < personajesZ.length; i++){
+            if(personajesZ[i] != null){
+               
+        System.out.println(personajesZ[i].nombre);
+        System.out.println(personajesZ[i].id);
+        System.out.println(personajesZ[i].habilidades);
+        System.out.println(personajesZ[i].puntosdevida);
+        System.out.println(personajesZ[i].fuerza);
+        System.out.println(personajesZ[i].agilidad);
+        System.out.println(personajesZ[i].nivel);
+            }
+      
+        }
+    }//GEN-LAST:event_IniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,6 +263,7 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Iniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -65,7 +65,7 @@ public class Cola {
     }
     
        public void addPersonaje(int id, String nombre, int habilidades, int puntosdevida, int fuerza, int agilidad, int nivel, int counter, Personaje siguiente) {
-        Personaje aux = new Personaje(id, nombre, habilidades, puntosdevida, fuerza, agilidad, nivel, counter, null);
+        Personaje aux = new Personaje(id, nombre);
         if (isEmpty()) {
             primero = aux;
             ultimo = aux;
