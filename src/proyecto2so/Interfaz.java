@@ -5,17 +5,29 @@
  */
 package proyecto2so;
 
+import java.util.Random;
+
 /**
  *
  * @author victoriadepalma
  */
 public class Interfaz extends javax.swing.JFrame {
+    
+  
+   
+    
     public static String[] namesZ=new String[10];
     public static String[] namesST=new String[10];
-    Personaje[] personajesZ=new Personaje[100];
-    Personaje[] personajesST=new Personaje[100];
+    Personaje[] personajesZ= new Personaje[100];
+    Personaje[] personajesST = new Personaje[100];
     int contadorId=0;
     
+  
+    
+    Cola cola1 = new Cola();
+    Cola cola2 = new Cola();
+    Cola cola3 = new Cola();
+    Cola colaR = new Cola();
     
     
         
@@ -52,26 +64,70 @@ public class Interfaz extends javax.swing.JFrame {
     
         
     }
+     
     
     public void inicializarPersonaje(){
-        for (int i=0;i<namesZ.length;i++){
-            personajesZ[i]=new Personaje(contadorId, namesZ[i]);
-            this.contadorId++;
+        for (int i=0;i<30;i++){
+            Random randomGenerator= new Random();
+            int idRandom=randomGenerator.nextInt(10);
             
-           
+            personajesZ[i] = new Personaje(contadorId, namesZ[idRandom], null); //lista de objetos personajes Zelda
+            
+            this.contadorId++;
+ 
         }
           for (int i=0;i<namesST.length;i++){
-            
+              Random randomGenerator= new Random();
+            int idRandom=randomGenerator.nextInt(10);
 
-            personajesST[i]=new Personaje(contadorId, namesST[i]);
+            personajesST[i]=new Personaje(contadorId, namesST[idRandom], null); //lista de objetos personajes Street Fighter
             this.contadorId++;
             
            
         }
-        
-        
+
     }
+//      public void accion1(Escritorio escritorio, Cola cola2,Cola cola3) {
+//        
+//          if (cola2.isEmpty() == false) {
+//         
+//            Escritorio aux = cola2.getPrimero();
+//          
+//            for (int i = 1; i <= cola2.size(); i++) {
+//                
+//                if(escritorio.getId()!=aux.getId()){
+//                aux.setContI(aux.getContI() + 1);
+//                }
+//              
+//                aux = aux.getSiguiente();
+//                
+//            }
+//        }
     
+    public void asignarColasNiveles (Cola cola1, Cola cola2, Cola cola3){
+       
+        for (int i=0;i< personajesZ.length;i++){
+            switch (personajesZ[i].nivel) {
+                case 1:
+                    cola1.addPersonaje(personajesZ[i].id, personajesZ[i].nombre);
+                    
+                    break;
+                case 2:
+                    cola2.addPersonaje(personajesZ[i].id, personajesZ[i].nombre);
+                    break;
+                case 3:
+                    cola3.addPersonaje(personajesZ[i].id, personajesZ[i].nombre);
+                    break;
+                default:
+                    break;
+            }
+            System.out.println("El personaje "  + personajesZ[i].id + " tiene nivel " + personajesZ[i].nivel );
+       
+        }
+    System.out.println("Contenido de la cola 1: " + cola1.imprimirCola());
+    System.out.println("Contenido de la cola 2: " + cola2.imprimirCola());
+    System.out.println("Contenido de la cola 3: " + cola3.imprimirCola());
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -225,6 +281,8 @@ public class Interfaz extends javax.swing.JFrame {
             }
       
         }
+        
+        this.asignarColasNiveles(cola1, cola2, cola3);
     }//GEN-LAST:event_IniciarActionPerformed
 
     /**

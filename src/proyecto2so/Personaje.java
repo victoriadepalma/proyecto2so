@@ -29,7 +29,7 @@ public class Personaje  {
     
 
     
-    public Personaje(int id, String nombre){
+    public Personaje(int id, String nombre, Personaje siguiente){
     
     this.id = id;
     this.nombre = nombre;
@@ -37,7 +37,7 @@ public class Personaje  {
     this.puntosdevida = tieneHabilidad(70);
     this.fuerza = tieneHabilidad(50);
     this.agilidad = tieneHabilidad(40);
-    this.siguiente = null;
+    this.siguiente = siguiente;
     this.counter = 0;
     this.nivel = asignarNivel(this.habilidades, this.puntosdevida, this.fuerza, this.agilidad, this.nivel);
             }

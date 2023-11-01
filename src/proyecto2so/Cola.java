@@ -64,21 +64,24 @@ public class Cola {
         return tamano;
     }
     
-       public void addPersonaje(int id, String nombre, int habilidades, int puntosdevida, int fuerza, int agilidad, int nivel, int counter, Personaje siguiente) {
-        Personaje aux = new Personaje(id, nombre);
+       public void addPersonaje(int id, String nombre) {
+        Personaje aux = new Personaje(id, nombre, null);
         if (isEmpty()) {
             primero = aux;
             ultimo = aux;
+            System.out.println("El primer nodo es" + aux.id);
         } else if (size() == 1) {
             primero.setSiguiente(aux);
         } else {
             ultimo.setSiguiente(aux);
+            System.out.println("El ultimo nodo es " + ultimo.id);
         }
         ultimo = aux;
         tamano++;
+           
     }
 
-    public void deleteJugador() {
+    public void deletePersonaje() {
         if (isEmpty()) {
             System.out.println("La cola está vacía");
         } else if (size() == 1) {
@@ -92,5 +95,24 @@ public class Cola {
             tamano--;
         }
     }
+    
+     public  String imprimirCola() {
+        int[] impresion = new int[tamano];
+        
+        if (isEmpty()) {
+            String vacia = "Vacía";
+            return vacia;
+        } else {
+            Personaje aux = primero;
+            for (int i = 0; i < tamano; i++) {
+                impresion[i] = aux.getId();
+                aux = aux.getSiguiente();
+            }
+            String personajes = Arrays.toString(impresion);
+            return personajes;
+        }
+     }
+     
+       
 }
 
