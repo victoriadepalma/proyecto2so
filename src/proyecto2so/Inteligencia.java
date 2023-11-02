@@ -5,10 +5,17 @@
  */
 package proyecto2so;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
  * @author victoriadepalma
  */
 public class Inteligencia {
+   
     
+    public Inteligencia(){
+
+    
+}
 }
