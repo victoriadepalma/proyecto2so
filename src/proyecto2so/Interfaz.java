@@ -74,7 +74,7 @@ public class Interfaz extends javax.swing.JFrame {
             Random randomGenerator= new Random();
             int idRandom=randomGenerator.nextInt(10);
             
-            personajesZ[i] = new Personaje(contadorId, namesZ[idRandom], null); //lista de objetos personajes Zelda
+            personajesZ[i] = new Personaje(contadorId, namesZ[idRandom], null,0); //lista de objetos personajes Zelda
             
             this.contadorId++;
  
@@ -83,7 +83,7 @@ public class Interfaz extends javax.swing.JFrame {
               Random randomGenerator= new Random();
             int idRandom=randomGenerator.nextInt(10);
 
-            personajesST[i]=new Personaje(contadorId, namesST[idRandom], null); //lista de objetos personajes Street Fighter
+            personajesST[i]=new Personaje(contadorId, namesST[idRandom], null,0); //lista de objetos personajes Street Fighter
             this.contadorId++;
             
            
@@ -346,19 +346,20 @@ public class Interfaz extends javax.swing.JFrame {
         this.inicializarPersonaje();
         
   
-//        for (int i=0; i < 30; i++){
-//            if(personajesZ[i] != null){
-//               
-//        System.out.println(personajesZ[i].nombre);
-//        System.out.println(personajesZ[i].id);
-//        System.out.println(personajesZ[i].habilidades);
-//        System.out.println(personajesZ[i].puntosdevida);
-//        System.out.println(personajesZ[i].fuerza);
-//        System.out.println(personajesZ[i].agilidad);
-//        System.out.println(personajesZ[i].nivel);
-//            }
+        for (int i=0; i < 30; i++){
+            if(personajesZ[i] != null){
+               
+        System.out.println(personajesZ[i].nombre);
+        System.out.println(personajesZ[i].id);
+        System.out.println(personajesZ[i].habilidades);
+        System.out.println(personajesZ[i].puntosdevida);
+        System.out.println(personajesZ[i].fuerza);
+        System.out.println(personajesZ[i].agilidad);
+        System.out.println(personajesZ[i].nivel);
+        System.out.println(personajesZ[i].sumaTotalHabilidades);
+            }
       
-//        }
+        }
         
         admin.asignarColasNiveles(this, this.cola1Z, this.cola2Z, this.cola3Z, this.cola1SF, this.cola2SF, this.cola3SF);
         admin.escogerCombate(this.cola1Z, this.cola2Z, this.cola3Z, this.cola1SF, this.cola2SF, this.cola3SF);

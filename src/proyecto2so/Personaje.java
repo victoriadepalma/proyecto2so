@@ -24,12 +24,13 @@ public class Personaje  {
     public int nivel;
     public int counter;
     public Personaje siguiente;
+    public int sumaTotalHabilidades;
 
     
     
 
     
-    public Personaje(int id, String nombre, Personaje siguiente){
+    public Personaje(int id, String nombre, Personaje siguiente, int sumaTotalHabilidades){
     
     this.id = id;
     this.nombre = nombre;
@@ -40,7 +41,11 @@ public class Personaje  {
     this.siguiente = siguiente;
     this.counter = 0;
     this.nivel = asignarNivel(this.habilidades, this.puntosdevida, this.fuerza, this.agilidad, this.nivel);
+    this.sumaTotalHabilidades = sumaHabilidades(this.habilidades, this.puntosdevida,this.fuerza, this.agilidad);
+//        System.out.println("suma total habilidades:" + sumaTotalHabilidades);
             }
+    
+    
 
     
     public int asignarNivel(int habilidades, int puntosdevida, int fuerza, int agilidad, int nivel){
@@ -79,6 +84,56 @@ public class Personaje  {
         return contHabilidad;
         
     }
+    public int sumaHabilidades(int habilidades, int puntosdevida,int fuerza, int agilidad){
+        int randomHabilidades=0;
+        int randomPuntosDeVida=0;
+        int randomFuerza=0;
+        int randomAgilidad=0;
+        int sumaTotal=0;
+        if(habilidades==1){
+            Random randomGenerator=new Random();
+            randomHabilidades=randomGenerator.nextInt(100)+1;
+            
+            System.out.println(this.id);
+            System.out.println("numeroHabilidades:"+randomHabilidades);
+     sumaTotal += randomHabilidades+randomPuntosDeVida+randomFuerza+randomAgilidad;
+            
+        }else{
+            
+        }
+        if(puntosdevida==1){
+            Random randomGenerator=new Random();
+            randomPuntosDeVida=randomGenerator.nextInt(100)+1;
+            
+               sumaTotal = randomHabilidades+randomPuntosDeVida+randomFuerza+randomAgilidad;
+            System.out.println("numeros Puntos de Vida:"+randomPuntosDeVida);
+        }else{
+            
+        }
+        if(fuerza==1){
+            Random randomGenerator=new Random();
+            randomFuerza=randomGenerator.nextInt(100)+1;
+              sumaTotal = randomHabilidades+randomPuntosDeVida+randomFuerza+randomAgilidad;
+            System.out.println("numero Fuerza:"+randomFuerza);
+        }else{
+            
+        }
+        if (agilidad==1){
+            Random randomGenerator=new Random();
+            randomAgilidad=randomGenerator.nextInt(100)+1;
+            System.out.println("numero Agilidad:"+randomAgilidad);
+              sumaTotal = randomHabilidades+randomPuntosDeVida+randomFuerza+randomAgilidad;
+        }else{
+            
+        }
+ 
+        return sumaTotal;
+        
+        
+            
+        }
+        
+    
        
     public int getId() {
         return id;

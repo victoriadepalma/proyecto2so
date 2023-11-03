@@ -64,8 +64,8 @@ public class Cola {
         return tamano;
     }
     
-       public void addPersonaje(int id, String nombre) {
-        Personaje aux = new Personaje(id, nombre, null);
+       public void addPersonaje(int id, String nombre, int suma) {
+        Personaje aux = new Personaje(id, nombre, null,suma);
         if (isEmpty()) {
             primero = aux;
             ultimo = aux;
