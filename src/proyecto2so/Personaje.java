@@ -25,12 +25,17 @@ public class Personaje  {
     public int counter;
     public Personaje siguiente;
     public int sumaTotalHabilidades;
+    public int randomHabilidades;
+    public int randomPuntosDeVida;
+    public int randomFuerza;
+    public int randomAgilidad;
+    
 
     
     
 
     
-    public Personaje(int id, String nombre, Personaje siguiente, int sumaTotalHabilidades){
+    public Personaje(int id, String nombre, Personaje siguiente, int sumaTotalHabilidades,int counter){
     
     this.id = id;
     this.nombre = nombre;
@@ -38,6 +43,10 @@ public class Personaje  {
     this.puntosdevida = tieneHabilidad(70);
     this.fuerza = tieneHabilidad(50);
     this.agilidad = tieneHabilidad(40);
+    this.randomHabilidades=0;
+    this.randomPuntosDeVida=0;
+    this.randomFuerza=0;
+    this.randomAgilidad=0;
     this.siguiente = siguiente;
     this.counter = 0;
     this.nivel = asignarNivel(this.habilidades, this.puntosdevida, this.fuerza, this.agilidad, this.nivel);
@@ -85,10 +94,10 @@ public class Personaje  {
         
     }
     public int sumaHabilidades(int habilidades, int puntosdevida,int fuerza, int agilidad){
-        int randomHabilidades=0;
-        int randomPuntosDeVida=0;
-        int randomFuerza=0;
-        int randomAgilidad=0;
+//        int randomHabilidades=0;
+//        int randomPuntosDeVida=0;
+//        int randomFuerza=0;
+//        int randomAgilidad=0;
         int sumaTotal=0;
         if(habilidades==1){
             Random randomGenerator=new Random();

@@ -17,29 +17,27 @@ import java.util.logging.Logger;
 
     public class Admin {
        
-    Semaphore sZelda;
-    Semaphore sSF;
+   
     
     public Admin(){
 
-      sZelda = new Semaphore(0);
-      sSF = new Semaphore(0);
+    
     }
          public void asignarColasNiveles (Interfaz interfaz, Cola cola1Z, Cola cola2Z, Cola cola3Z, Cola cola1SF, Cola cola2SF, Cola cola3SF){
        
         for (int i=0;i< 30;i++){
             switch (interfaz.personajesZ[i].nivel) {
                 case 1:
-                    cola1Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades);
+                    cola1Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
 //                    System.out.println("El personaje de id " + interfaz.personajesZ[i].id + "es de nivel: " + interfaz.personajesZ[i].nivel);
                     System.out.println("Contenido de la cola 1 zelda: " + cola1Z.imprimirCola());
                     break;
                 case 2:
-                    cola2Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades);
+                    cola2Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
                   
                     break;
                 case 3:
-                    cola3Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades);
+                    cola3Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
                
                     break;
                 default:
@@ -50,15 +48,15 @@ import java.util.logging.Logger;
           for (int u=0;u< 30;u++){
             switch (interfaz.personajesST[u].nivel) {
                 case 1:
-                    cola1SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades);
+                    cola1SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
                     System.out.println("Contenido de la cola 1 sf: " + cola1SF.imprimirCola());
                     break;
                 case 2:
-                    cola2SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades);
+                    cola2SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
               
                     break;
                 case 3:
-                    cola3SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades);
+                    cola3SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
                    
                     break;
                 default:
@@ -139,33 +137,33 @@ import java.util.logging.Logger;
           
           
           
-        public void escogerCombate(Cola cola1Z, Cola cola2Z, Cola cola3Z, Cola cola1SF, Cola cola2SF, Cola cola3SF){
+        public void escogerCombate(Cola cola1Z, Cola cola2Z, Cola cola3Z, Cola cola1SF, Cola cola2SF, Cola cola3SF, Cola colaRZ, Cola colaRSF){
+            Interfaz interfaz=new Interfaz();
+            Inteligencia inteligencia = new Inteligencia(interfaz);
+              
               Random randomNumber= new Random();
               int numeroRandom = randomNumber.nextInt(2);
 //              System.out.println("el numero random es " + numeroRandom);
               
               
               if (numeroRandom == 0){ 
-//                  System.out.println("Entre al numero random 0");
+
                Personaje aux1 =escogerPersonajeZelda(cola1Z, cola2Z,cola3Z); //aux1
-//               System.out.println(" numero random 0 aggare a zelda");
-               
+      
                Personaje aux2= escogerPersonajeSF(cola1SF, cola2SF,cola3SF); //aux2  
-//               System.out.println(" numero random 0 aggare a sf");
-//               System.out.println("0 El combate va a ser entre zelda " + escogerPersonajeZelda(cola1Z, cola2Z,cola3Z).id + "y entre " + escogerPersonajeSF(cola1SF, cola2SF,cola3SF).id );
-//                        System.out.println("El combate va a ser entre zelda " + aux1.id + "y entre " + aux2.id);
+
+                inteligencia.combate(aux1,aux2,cola1Z, cola2Z,cola3Z,cola1SF, cola2SF,cola3SF, colaRZ, colaRSF);
+                
+                 
               }else{
-//                  System.out.println("Entre al numero random 1");
+
               Personaje aux2= escogerPersonajeSF(cola1SF, cola2SF,cola3SF); //aux2  
-//              System.out.println(" numero random 1 aggare a zelda");
-         
               Personaje aux1 = escogerPersonajeZelda(cola1Z, cola2Z,cola3Z); //aux1
-//              System.out.println(" numero random 1 aggare a sf");
-//               System.out.println(" 1 El combate va a ser entre zelda " + escogerPersonajeZelda(cola1Z, cola2Z,cola3Z).id + "y entre " + escogerPersonajeSF(cola1SF, cola2SF,cola3SF).id );
-//  System.out.println("El combate va a ser entre zelda " + aux1.id + "y entre " + aux2.id);
+              inteligencia.combate(aux1,aux2,cola1Z, cola2Z,cola3Z,cola1SF, cola2SF,cola3SF, colaRZ, colaRSF);
+             
+
               }
-//              System.out.println("El combate va a ser entre zelda " + aux1 + "y entre " + escogerPersonajeSF(cola1SF, cola2SF,cola3SF).id );
-//              combate(aux1, aux2)
+
           }
         
 }
