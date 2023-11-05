@@ -5,7 +5,11 @@
  */
 package proyecto2so;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.util.Random;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,9 +23,11 @@ public class Interfaz extends javax.swing.JFrame {
     public static String[] namesZ=new String[10];
     public static String[] namesST=new String[10];
     public  int[] listaGanadores= new int[150];
-    public Personaje[] personajesZ= new Personaje[100];
-    public Personaje[] personajesST = new Personaje[100];
-    int contadorId=0;
+    public Personaje[] personajesZ= new Personaje[30];
+    public Personaje[] personajesST = new Personaje[30];
+    
+    int contadorIdZ=0;
+    int contadorIdSF=0;
     
   
     
@@ -35,8 +41,8 @@ public class Interfaz extends javax.swing.JFrame {
     Cola colaRSF = new Cola();
     
     
-        
-    
+        Admin admin = new Admin(this);
+        Inteligencia inteligencia = new Inteligencia(this, this.cola1Z, this.cola2Z, this.cola3Z, this.cola1SF, this.cola2SF, this.cola3SF, this.colaRZ, this.colaRSF, admin);
    
     
 
@@ -72,31 +78,48 @@ public class Interfaz extends javax.swing.JFrame {
      
     
     public void inicializarPersonaje(){
-        for (int i=0;i<30;i++){
+        for (int i=0;i< personajesZ.length;i++){
             Random randomGenerator= new Random();
             int idRandom=randomGenerator.nextInt(10);
             
-            personajesZ[i] = new Personaje(contadorId, namesZ[idRandom], null,0,0); //lista de objetos personajes Zelda
+            personajesZ[i] = new Personaje(contadorIdZ, namesZ[idRandom], null,0,0); //lista de objetos personajes Zelda
             
-            this.contadorId++;
+            this.contadorIdZ++;
+            System.out.println("se hizo bien");
  
         }
-          for (int i=0;i<30;i++){
+          for (int i=0;i<personajesST.length;i++){
               Random randomGenerator= new Random();
             int idRandom=randomGenerator.nextInt(10);
 
-            personajesST[i]=new Personaje(contadorId, namesST[idRandom], null,0,0); //lista de objetos personajes Street Fighter
-            this.contadorId++;
+            personajesST[i]=new Personaje(contadorIdSF, namesST[idRandom], null,0,0); //lista de objetos personajes Street Fighter
+            this.contadorIdSF++;
             
            
         }
 
     }
-
-
-
     
-
+    public void visualizarColas(){
+           String cola1z = cola1Z.imprimirColaZelda();
+           String cola1sf = cola1SF.imprimirColaSF();
+           String cola2z = cola2Z.imprimirColaZelda();
+           String cola2sf = cola2SF.imprimirColaSF();
+           String cola3z = cola3Z.imprimirColaZelda();
+           String cola3sf = cola3SF.imprimirColaSF();
+           String colarz = colaRZ.imprimirColaZelda();
+           String colarsf = colaRSF.imprimirColaSF();
+           
+           txtNivel1Z.setText(cola1z);
+           txtNivel2Z.setText(cola2z);
+           txtNivel3Z.setText(cola3z);
+           txtRZ.setText(colarz);
+           txtNivel1SF.setText(cola1sf);
+           txtNivel2SF.setText(cola2sf);
+           txtNivel3SF.setText(cola3sf);
+           txtRSF.setText(colarsf);
+        }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -126,7 +149,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         Iniciar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        txtGanador = new javax.swing.JTextField();
+        txtResultado = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -144,6 +167,23 @@ public class Interfaz extends javax.swing.JFrame {
         jSlider1 = new javax.swing.JSlider();
         jLabel24 = new javax.swing.JLabel();
         txtEstadoIA = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtRSF = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtNivel1Z = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtNivel2Z = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtNivel3Z = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtRZ = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        txtNivel1SF = new javax.swing.JTextArea();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        txtNivel2SF = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        txtNivel3SF = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -206,6 +246,12 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel10.setText("id");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        txtIdZ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdZActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtIdZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 70, -1));
 
         jLabel11.setText("Nombre");
@@ -230,9 +276,9 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jPanel1.add(Iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
 
-        jLabel14.setText("Ganador");
+        jLabel14.setText("Resultado");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, 20));
-        jPanel1.add(txtGanador, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 80, 30));
+        jPanel1.add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 150, 30));
 
         jLabel15.setText("STREET FIGHTER");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, -1, -1));
@@ -287,13 +333,69 @@ public class Interfaz extends javax.swing.JFrame {
                 txtEstadoIAActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 80, 30));
+        jPanel1.add(txtEstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 150, 30));
+
+        jButton1.setText("cambiar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, -1, -1));
+
+        txtRSF.setColumns(20);
+        txtRSF.setRows(5);
+        jScrollPane1.setViewportView(txtRSF);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 370, 40));
+
+        txtNivel1Z.setColumns(20);
+        txtNivel1Z.setRows(5);
+        jScrollPane2.setViewportView(txtNivel1Z);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 380, 40));
+
+        txtNivel2Z.setColumns(20);
+        txtNivel2Z.setRows(5);
+        jScrollPane3.setViewportView(txtNivel2Z);
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 380, 40));
+
+        txtNivel3Z.setColumns(20);
+        txtNivel3Z.setRows(5);
+        jScrollPane4.setViewportView(txtNivel3Z);
+
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, 380, 40));
+
+        txtRZ.setColumns(20);
+        txtRZ.setRows(5);
+        jScrollPane5.setViewportView(txtRZ);
+
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, 380, 40));
+
+        txtNivel1SF.setColumns(20);
+        txtNivel1SF.setRows(5);
+        jScrollPane6.setViewportView(txtNivel1SF);
+
+        jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 410, 370, 40));
+
+        txtNivel2SF.setColumns(20);
+        txtNivel2SF.setRows(5);
+        jScrollPane7.setViewportView(txtNivel2SF);
+
+        jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 370, 40));
+
+        txtNivel3SF.setColumns(20);
+        txtNivel3SF.setRows(5);
+        jScrollPane8.setViewportView(txtNivel3SF);
+
+        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 520, 370, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1016, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,38 +413,16 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
         // TODO add your handling code here:
-        this.txtTiempo.setText(Integer.toString(10));
-        Admin admin = new Admin();
-        this.inicializarPersonaje();
+         this.inicializarPersonaje();
+        this.visualizarColas();
+ 
+        this.txtTiempo.setText(Integer.toString(5));
+        this.txtEstadoIA.setText("Esperando");
+        admin.asignarColasNiveles(this.cola1Z, this.cola2Z, this.cola3Z, this.cola1SF, this.cola2SF, this.cola3SF);
+        inteligencia.start();
         
-  
-        for (int i=0; i < 30; i++){
-            if(personajesZ[i] != null){
-               
-        System.out.println(personajesZ[i].nombre);
-        System.out.println(personajesZ[i].id);
-        System.out.println(personajesZ[i].habilidades);
-        System.out.println(personajesZ[i].puntosdevida);
-        System.out.println(personajesZ[i].fuerza);
-        System.out.println(personajesZ[i].agilidad);
-        System.out.println("PENDIENTE AQUI");
-                System.out.println("NUMERO HABILIDADES");
-        System.out.println(personajesZ[i].randomHabilidades);
-        System.out.println("NUMERO PUNTOS DE VIDA");
-        System.out.println(personajesZ[i].randomPuntosDeVida);
-        System.out.println("NUMERO FUERZA");
-        System.out.println(personajesZ[i].randomFuerza);
-        System.out.println("NUMERO AGILIDAD");
-        System.out.println(personajesZ[i].randomAgilidad);
-        System.out.println(personajesZ[i].nivel);
-        System.out.println(personajesZ[i].sumaTotalHabilidades);
+//       
         
-            }
-      
-        }
-        
-        admin.asignarColasNiveles(this, this.cola1Z, this.cola2Z, this.cola3Z, this.cola1SF, this.cola2SF, this.cola3SF);
-        admin.escogerCombate(this.cola1Z, this.cola2Z, this.cola3Z, this.cola1SF, this.cola2SF, this.cola3SF, this.colaRZ, this.colaRSF);
     }//GEN-LAST:event_IniciarActionPerformed
 
     private void txtCombatesGanadosZeldaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCombatesGanadosZeldaActionPerformed
@@ -356,6 +436,15 @@ public class Interfaz extends javax.swing.JFrame {
     private void txtEstadoIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstadoIAActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEstadoIAActionPerformed
+
+    private void txtIdZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdZActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdZActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -394,6 +483,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Iniciar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -421,15 +511,31 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSlider jSlider1;
     public static javax.swing.JTextField txtCombatesGanadosSF;
     public static javax.swing.JTextField txtCombatesGanadosZelda;
-    public javax.swing.JTextField txtEstadoIA;
-    public static javax.swing.JTextField txtGanador;
-    public static javax.swing.JTextField txtIdSF;
-    public static javax.swing.JTextField txtIdZ;
-    public static javax.swing.JTextField txtNombreSF;
-    public static javax.swing.JTextField txtNombreZelda;
-    public static javax.swing.JTextField txtTiempo;
+    public static javax.swing.JTextField txtEstadoIA;
+    public javax.swing.JTextField txtIdSF;
+    public javax.swing.JTextField txtIdZ;
+    private javax.swing.JTextArea txtNivel1SF;
+    private javax.swing.JTextArea txtNivel1Z;
+    private javax.swing.JTextArea txtNivel2SF;
+    private javax.swing.JTextArea txtNivel2Z;
+    private javax.swing.JTextArea txtNivel3SF;
+    private javax.swing.JTextArea txtNivel3Z;
+    public javax.swing.JTextField txtNombreSF;
+    public javax.swing.JTextField txtNombreZelda;
+    private javax.swing.JTextArea txtRSF;
+    private javax.swing.JTextArea txtRZ;
+    public static javax.swing.JTextField txtResultado;
+    public javax.swing.JTextField txtTiempo;
     // End of variables declaration//GEN-END:variables
 }

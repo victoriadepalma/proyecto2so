@@ -48,7 +48,7 @@ public class Personaje  {
     this.randomFuerza=0;
     this.randomAgilidad=0;
     this.siguiente = siguiente;
-    this.counter = 0;
+    this.counter = counter;
     this.nivel = asignarNivel(this.habilidades, this.puntosdevida, this.fuerza, this.agilidad, this.nivel);
     this.sumaTotalHabilidades = sumaHabilidades(this.habilidades, this.puntosdevida,this.fuerza, this.agilidad);
 //        System.out.println("suma total habilidades:" + sumaTotalHabilidades);
@@ -103,8 +103,8 @@ public class Personaje  {
             Random randomGenerator=new Random();
             randomHabilidades=randomGenerator.nextInt(100)+1;
             
-            System.out.println(this.id);
-            System.out.println("numeroHabilidades:"+randomHabilidades);
+//            System.out.println(this.id);
+//            System.out.println("numeroHabilidades:"+randomHabilidades);
      sumaTotal += randomHabilidades+randomPuntosDeVida+randomFuerza+randomAgilidad;
             
         }else{
@@ -115,7 +115,7 @@ public class Personaje  {
             randomPuntosDeVida=randomGenerator.nextInt(100)+1;
             
                sumaTotal = randomHabilidades+randomPuntosDeVida+randomFuerza+randomAgilidad;
-            System.out.println("numeros Puntos de Vida:"+randomPuntosDeVida);
+//            System.out.println("numeros Puntos de Vida:"+randomPuntosDeVida);
         }else{
             
         }
@@ -123,14 +123,14 @@ public class Personaje  {
             Random randomGenerator=new Random();
             randomFuerza=randomGenerator.nextInt(100)+1;
               sumaTotal = randomHabilidades+randomPuntosDeVida+randomFuerza+randomAgilidad;
-            System.out.println("numero Fuerza:"+randomFuerza);
+//            System.out.println("numero Fuerza:"+randomFuerza);
         }else{
             
         }
         if (agilidad==1){
             Random randomGenerator=new Random();
             randomAgilidad=randomGenerator.nextInt(100)+1;
-            System.out.println("numero Agilidad:"+randomAgilidad);
+//            System.out.println("numero Agilidad:"+randomAgilidad);
               sumaTotal = randomHabilidades+randomPuntosDeVida+randomFuerza+randomAgilidad;
         }else{
             
@@ -176,3 +176,4 @@ public class Personaje  {
         this.siguiente = siguiente;
     }
 }
+

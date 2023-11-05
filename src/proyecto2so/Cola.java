@@ -5,7 +5,7 @@
  */
 package proyecto2so;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 
 /**
  *
@@ -69,12 +69,12 @@ public class Cola {
         if (isEmpty()) {
             primero = aux;
             ultimo = aux;
-            System.out.println("El primer nodo es" + aux.id);
+//            System.out.println("El primer nodo es" + aux.id);
         } else if (size() == 1) {
             primero.setSiguiente(aux);
         } else {
             ultimo.setSiguiente(aux);
-            System.out.println("El ultimo nodo es " + ultimo.id);
+//            System.out.println("El ultimo nodo es " + ultimo.id);
         }
         ultimo = aux;
         tamano++;
@@ -96,23 +96,65 @@ public class Cola {
         }
     }
     
-     public  String imprimirCola() {
-        int[] impresion = new int[tamano];
-        
-        if (isEmpty()) {
-            String vacia = "Vacía";
-            return vacia;
-        } else {
-            Personaje aux = primero;
-            for (int i = 0; i < tamano; i++) {
-                impresion[i] = aux.getId();
-                aux = aux.getSiguiente();
-            }
-            String personajes = Arrays.toString(impresion);
-            return personajes;
-        }
-     }
-     
-       
-}
+    public String imprimirColaZelda() {
+    if (isEmpty()) {
+        return "La cola está vacía";
+    }
 
+    String resultado = "[";
+    Personaje actual = primero;
+    while (actual != null) {
+        resultado += actual.getId() + "z" ;
+        if (actual.getSiguiente() != null) {
+            resultado += ", ";
+        }
+        actual = actual.getSiguiente();
+    }
+    resultado += "]";
+
+    return resultado;
+    
+    
+}
+    
+    public String imprimirColaSF() {
+    if (isEmpty()) {
+        return "La cola está vacía";
+    }
+
+    String resultado = "[";
+    Personaje actual = primero;
+    while (actual != null) {
+        resultado += actual.getId() + "sf";
+        if (actual.getSiguiente() != null) {
+            resultado += ", ";
+        }
+        actual = actual.getSiguiente();
+    }
+    resultado += "]";
+
+    return resultado;
+    
+    
+}
+//     public  String imprimirCola() {
+//        int[] impresion = new int[tamano];
+//        
+//        if (isEmpty()) {
+//            String vacia = "Vacía";
+//            return vacia;
+//        } else {
+//            Personaje aux = primero;
+//            for (int i = 0; i < tamano; i++) {
+//                impresion[i] = aux.getId();
+//                aux = aux.getSiguiente();
+//            }
+//            String personajes = Arrays.toString(impresion);
+//            return personajes;
+//        }
+//     }
+     
+    
+       
+
+}
