@@ -75,7 +75,8 @@ public class Inteligencia extends Thread {
 
               Personaje aux1 =admin.escogerPersonajeZelda(cola1Z, cola2Z,cola3Z); //aux1
 //                 
-              Personaje aux2= admin.escogerPersonajeSF(cola1SF, cola2SF,cola3SF); 
+              Personaje aux2= admin.escogerPersonajeSF(cola1SF, cola2SF,cola3SF);
+              
            
 
 
@@ -88,7 +89,9 @@ public class Inteligencia extends Thread {
         interfaz.txtNombreZelda.setText((aux1.nombre));
         
         interfaz.txtNombreSF.setText((aux2.nombre));
-         Thread.sleep(2000); 
+        interfaz.imagenZelda.setIcon(aux1.imagenIcono);
+        interfaz.imagenStreetFighter.setIcon(aux2.imagenIcono);
+         Thread.sleep(1000); 
 
 //        contadorRonda ++;
 //         admin.moverNivel(cola1Z, cola2Z, cola3Z, cola1SF, cola2SF, cola3SF);
@@ -136,7 +139,7 @@ public class Inteligencia extends Thread {
                    contadorCombates++;
                    interfaz.txtCombatesGanadosSF.setText(Integer.toString(contadorSF));
                    System.out.println("Contador combate: "+contadorCombates);
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
                 interfaz.txtEstadoIA.setText("Esperando");
                interfaz.txtResultado.setText("");
                   
@@ -154,7 +157,7 @@ public class Inteligencia extends Thread {
                    contadorCombates++;
                    System.out.println("Contador combate: "+contadorCombates);
                    interfaz.txtCombatesGanadosSF.setText(Integer.toString(contadorSF));
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                   interfaz.txtEstadoIA.setText("Esperando");
                interfaz.txtResultado.setText("");
                  
@@ -170,7 +173,7 @@ public class Inteligencia extends Thread {
                 contadorCombates++;
               System.out.println("Contador combate: "+contadorCombates);
                     interfaz.txtCombatesGanadosZelda.setText(Integer.toString(contadorZ));
-                     Thread.sleep(2000);
+                     Thread.sleep(1000);
                        interfaz.txtEstadoIA.setText("Esperando");
                interfaz.txtResultado.setText("");
                
@@ -188,7 +191,7 @@ public class Inteligencia extends Thread {
                 contadorCombates++;
                System.out.println("Contador combate: "+contadorCombates);
                 interfaz.txtCombatesGanadosZelda.setText(Integer.toString(contadorZ));
-                 Thread.sleep(2000);
+                 Thread.sleep(1000);
                    interfaz.txtEstadoIA.setText("Esperando");
                interfaz.txtResultado.setText("");
                  
@@ -202,7 +205,7 @@ public class Inteligencia extends Thread {
             interfaz.cola1Z.addPersonaje(aux1.id,aux1.nombre,aux1.sumaTotalHabilidades,aux1.counter);
             interfaz.cola1SF.addPersonaje(aux2.id,aux2.nombre,aux2.sumaTotalHabilidades,aux2.counter);
                interfaz.visualizarColas();
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                   interfaz.txtEstadoIA.setText("Esperando");
                interfaz.txtResultado.setText("");
                
@@ -217,7 +220,7 @@ public class Inteligencia extends Thread {
          interfaz.colaRZ.addPersonaje(aux1.id,aux1.nombre,aux1.sumaTotalHabilidades,0);
          interfaz.colaRSF.addPersonaje(aux2.id,aux2.nombre,aux2.sumaTotalHabilidades,0);
             interfaz.visualizarColas();
-             Thread.sleep(2000);
+             Thread.sleep(1000);
                interfaz.txtEstadoIA.setText("Esperando");
                interfaz.txtResultado.setText("");
                  
@@ -230,7 +233,7 @@ public class Inteligencia extends Thread {
                System.out.println("contador ronda: " +contadorRonda);
         
         admin.nuevoEntra(cola1Z, cola2Z, cola3Z, cola1SF, cola2SF, cola3SF, this);
-        Thread.sleep(2000);             
+        Thread.sleep(1000);             
        
     } catch (InterruptedException ex) {
              System.out.println("Ocurrió un error!");
