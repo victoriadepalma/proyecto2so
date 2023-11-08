@@ -136,7 +136,7 @@ public class Inteligencia extends Thread {
 //                   System.out.println("Gana Street Fighter");
                    contadorSF++;
 //                   System.out.println("Contador SF: "+contadorSF);
-                   interfaz.listaGanadores[contadorCombates]=aux2.id;
+                   interfaz.colaGanadoresSF.addPersonaje(aux2.id, aux2.nombre, aux2.sumaTotalHabilidades, aux2.counter);
                    contadorCombates++;
                    interfaz.txtCombatesGanadosSF.setText(Integer.toString(contadorSF));
                    System.out.println("Contador combate: "+contadorCombates);
@@ -154,7 +154,7 @@ public class Inteligencia extends Thread {
 //                   System.out.println("Gana Street Fighter");
                    contadorSF++;
 //             
-                   interfaz.listaGanadores[contadorCombates]=aux2.id;
+                   interfaz.colaGanadoresSF.addPersonaje(aux2.id, aux2.nombre, aux2.sumaTotalHabilidades, aux2.counter);
                    contadorCombates++;
                    System.out.println("Contador combate: "+contadorCombates);
                    interfaz.txtCombatesGanadosSF.setText(Integer.toString(contadorSF));
@@ -170,7 +170,7 @@ public class Inteligencia extends Thread {
 //                System.out.println("gana zelda");
                 contadorZ++;
 //                System.out.println("Contador Z: "+contadorZ);
-                interfaz.listaGanadores[contadorCombates]=aux1.id;
+                interfaz.colaGanadoresZelda.addPersonaje(aux1.id, aux1.nombre, aux1.sumaTotalHabilidades, aux1.counter);
                 contadorCombates++;
               System.out.println("Contador combate: "+contadorCombates);
                     interfaz.txtCombatesGanadosZelda.setText(Integer.toString(contadorZ));
@@ -188,7 +188,7 @@ public class Inteligencia extends Thread {
 //                System.out.println("gana zelda");
                 contadorZ++;
 //                System.out.println("Contador Z: "+contadorZ);
-                interfaz.listaGanadores[contadorCombates]=aux1.id;
+                interfaz.colaGanadoresZelda.addPersonaje(aux1.id, aux1.nombre, aux1.sumaTotalHabilidades, aux1.counter);
                 contadorCombates++;
                System.out.println("Contador combate: "+contadorCombates);
                 interfaz.txtCombatesGanadosZelda.setText(Integer.toString(contadorZ));
@@ -230,11 +230,15 @@ public class Inteligencia extends Thread {
          contadorRonda ++;
          cont++;
          
+         
          admin.moverNivel(cola1Z, cola2Z, cola3Z, cola1SF, cola2SF, cola3SF);
        admin.actualizarColasResfuerzo(cola1Z, cola1SF, colaRZ, colaRSF);
        
                System.out.println("contador ronda: " +contadorRonda);
                System.out.println("contador de victoria inncesario: " +cont);
+               System.out.println("holaaa");
+               System.out.println("COLA GANADORES ZELDA: "+interfaz.colaGanadoresZelda.imprimirColaZelda());
+                System.out.println("COLA GANADORES SF: "+interfaz.colaGanadoresSF.imprimirColaSF());
         
         admin.nuevoEntra(cola1Z, cola2Z, cola3Z, cola1SF, cola2SF, cola3SF, this);
         Thread.sleep(1000);             

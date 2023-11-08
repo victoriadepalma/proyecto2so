@@ -22,7 +22,7 @@ public class Interfaz extends javax.swing.JFrame {
     
     public static String[] namesZ=new String[10];
     public static String[] namesST=new String[10];
-    public  int[] listaGanadores= new int[150];
+    public static String[] listaGanadores=new String[150];
     public Personaje[] personajesZ= new Personaje[30];
     public Personaje[] personajesST = new Personaje[30];
     public int tiempo;
@@ -42,6 +42,8 @@ public class Interfaz extends javax.swing.JFrame {
     Cola colaRSF = new Cola();
     Cola colaPersonajesZelda=new Cola();
     Cola colaPersonajesSF=new Cola();
+    Cola colaGanadoresSF=new Cola();
+    Cola colaGanadoresZelda=new Cola();
     //hola
     
     
@@ -530,6 +532,8 @@ public class Interfaz extends javax.swing.JFrame {
         SoundHandler.RunMusic("/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/audio/music.wav");
         this.inicializarPersonaje(10);
         this.visualizarColas();
+        
+        
  
         this.txtTiempo.setText(Integer.toString(this.tiempo));
         this.txtEstadoIA.setText("Esperando");
