@@ -40,6 +40,9 @@ public class Interfaz extends javax.swing.JFrame {
     Cola cola3SF = new Cola();
     Cola colaRZ = new Cola();
     Cola colaRSF = new Cola();
+    Cola colaPersonajesZelda=new Cola();
+    Cola colaPersonajesSF=new Cola();
+    //hola
     
     
         Admin admin = new Admin(this);
@@ -80,31 +83,66 @@ public class Interfaz extends javax.swing.JFrame {
     
         
     }
-     
-    
-    public void inicializarPersonaje(){
-        for (int i=0;i< personajesZ.length;i++){
-            Random randomGenerator= new Random();
-            int idRandom=randomGenerator.nextInt(10);
-            
-            personajesZ[i] = new Personaje(contadorIdZ, namesZ[idRandom], null,0,0); //lista de objetos personajes Zelda
-            
-            this.contadorIdZ++;
-            System.out.println("se hizo bien");
- 
-        }
-          for (int i=0;i<personajesST.length;i++){
-              Random randomGenerator= new Random();
-            int idRandom=randomGenerator.nextInt(10);
+    public void inicializarPersonaje(int iteracionesTotales){
+//        int contadorIteracionesZ=0;
+//        int contadorIteracionesSF=0;
+        for (int i=0;i<iteracionesTotales;i++){
+        Random randomGenerator= new Random();
+        int idRandom=randomGenerator.nextInt(10);
+        colaPersonajesZelda.addPersonaje(contadorIdZ, namesZ[idRandom],0,0);
+        this.contadorIdZ++;
+        
+//        contadorIteracionesZ++;
+//        if (i==namesZ.length-1){
+////            contadorIteracionesZ=0;
+//            i=0;
+//        }else{
 
-            personajesST[i]=new Personaje(contadorIdSF, namesST[idRandom], null,0,0); //lista de objetos personajes Street Fighter
-            this.contadorIdSF++;
-            
-           
+//            
+//        }
         }
+        //holaaa1
+        
+        for (int u=0;u<iteracionesTotales;u++){
+        Random randomGenerator= new Random();
+        int idRandom=randomGenerator.nextInt(10);
+        colaPersonajesSF.addPersonaje(contadorIdSF, namesST[idRandom],0,0);
+        this.contadorIdSF++;
+//        this.contadorIdSF++;
+//        if (u==namesST.length-1){
+//           
+//            u=0;
+//        }else{
+//            
+//        }
 
     }
+    }
+     
     
+//    public void inicializarPersonaje(){
+//        for (int i=0;i< personajesZ.length;i++){
+//            Random randomGenerator= new Random();
+//            int idRandom=randomGenerator.nextInt(10);
+//            
+//            personajesZ[i] = new Personaje(contadorIdZ, namesZ[idRandom], null,0,0); //lista de objetos personajes Zelda
+//            
+//            this.contadorIdZ++;
+//            System.out.println("se hizo bien");
+// 
+//        }
+//          for (int i=0;i<personajesST.length;i++){
+//              Random randomGenerator= new Random();
+//            int idRandom=randomGenerator.nextInt(10);
+//
+//            personajesST[i]=new Personaje(contadorIdSF, namesST[idRandom], null,0,0); //lista de objetos personajes Street Fighter
+//            this.contadorIdSF++;
+//            
+//           
+//        }
+//
+//    }
+//    
     public void visualizarColas(){
            String cola1z = cola1Z.imprimirColaZelda();
            String cola1sf = cola1SF.imprimirColaSF();
@@ -489,8 +527,8 @@ public class Interfaz extends javax.swing.JFrame {
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
         // TODO add your handling code here:
         setBtnIniciarEnabled(false);
-        SoundHandler.RunMusic("/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/audio/music.wav");
-         this.inicializarPersonaje();
+        SoundHandler.RunMusic("/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/audio/music.wav");
+        this.inicializarPersonaje(10);
         this.visualizarColas();
  
         this.txtTiempo.setText(Integer.toString(this.tiempo));

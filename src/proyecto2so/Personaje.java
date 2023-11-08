@@ -158,6 +158,7 @@ public class Personaje  {
     
     public int asignarId(int id){
         return id++;
+        //holaaa1
         
     }
     

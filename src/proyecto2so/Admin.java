@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * @author victoriadepalma
  */
 
-    public class Admin {
+   public class Admin {
        
    Semaphore s;
    Interfaz interfaz;
@@ -28,104 +28,175 @@ import java.util.logging.Logger;
     this.i =10;
     this.u =10;
     }
-         public void asignarColasNiveles (Cola cola1Z, Cola cola2Z, Cola cola3Z, Cola cola1SF, Cola cola2SF, Cola cola3SF){
-       
-        for (int i=0;i< 10;i++){
-            switch (interfaz.personajesZ[i].nivel) {
-                case 1:
-                    cola1Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
+    
+    public void asignarColasNiveles(Cola cola1Z, Cola cola2Z, Cola cola3Z, Cola cola1SF, Cola cola2SF, Cola cola3SF){
+        int iteracionesZelda=0;
+        int iteracionesSF=0;
+            while (iteracionesZelda !=10){
+                if (interfaz.colaPersonajesZelda.isEmpty()==false){
+                Personaje personajeZ = interfaz.colaPersonajesZelda.getPrimero();
+                interfaz.colaPersonajesZelda.deletePersonaje();
+                switch(personajeZ.nivel){
+                    case 1:
+                        cola1Z.addPersonaje(personajeZ.id, personajeZ.nombre,personajeZ.sumaTotalHabilidades,personajeZ.counter);
+                        iteracionesZelda++;
 //                    System.out.println("El personaje de id " + interfaz.personajesZ[i].id + "es de nivel: " + interfaz.personajesZ[i].nivel);
 //                    System.out.println("Contenido de la cola 1 zelda: " + cola1Z.imprimirCola());
                     break;
                 case 2:
-                    cola2Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
+                    cola2Z.addPersonaje(personajeZ.id, personajeZ.nombre,personajeZ.sumaTotalHabilidades,personajeZ.counter);
+                    iteracionesZelda++;
                   
                     break;
                 case 3:
-                    cola3Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
+                    cola3Z.addPersonaje(personajeZ.id, personajeZ.nombre,personajeZ.sumaTotalHabilidades,personajeZ.counter);
+                    iteracionesZelda++;
                
                     break;
                 default:
                     break;
+                }
+                }
             }
-        }
-            
-          for (int u=0;u< 10;u++){
-            switch (interfaz.personajesST[u].nivel) {
-                case 1:
-                    cola1SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
-//                    System.out.println("Contenido de la cola 1 sf: " + cola1SF.imprimirCola());
+                while (iteracionesSF !=10){
+                    if (interfaz.colaPersonajesSF.isEmpty()==false){
+                Personaje personajeSF = interfaz.colaPersonajesSF.getPrimero();
+                interfaz.colaPersonajesSF.deletePersonaje();
+                switch(personajeSF.nivel){
+                    case 1:
+                        cola1SF.addPersonaje(personajeSF.id, personajeSF.nombre,personajeSF.sumaTotalHabilidades,personajeSF.counter);
+                        iteracionesSF++;
+//                    System.out.println("El personaje de id " + interfaz.personajesZ[i].id + "es de nivel: " + interfaz.personajesZ[i].nivel);
+//                    System.out.println("Contenido de la cola 1 zelda: " + cola1Z.imprimirCola());
                     break;
                 case 2:
-                    cola2SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
-              
+                    cola2SF.addPersonaje(personajeSF.id, personajeSF.nombre,personajeSF.sumaTotalHabilidades,personajeSF.counter);
+                    iteracionesSF++;
+                  
                     break;
                 case 3:
-                    cola3SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
-                   
+                     cola3SF.addPersonaje(personajeSF.id, personajeSF.nombre,personajeSF.sumaTotalHabilidades,personajeSF.counter);
+                    iteracionesSF++;
+               
                     break;
                 default:
                     break;
-            }
+                }
+                
+                    }
+    }
+    }
+          //hola1
+//         public void asignarColasNiveles (Cola cola1Z, Cola cola2Z, Cola cola3Z, Cola cola1SF, Cola cola2SF, Cola cola3SF){
 //       
-          }
+//        for (int i=0;i< 10;i++){
+//            switch (interfaz.personajesZ[i].nivel) {
+//                case 1:
+//                    cola1Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
+////                    System.out.println("El personaje de id " + interfaz.personajesZ[i].id + "es de nivel: " + interfaz.personajesZ[i].nivel);
+////                    System.out.println("Contenido de la cola 1 zelda: " + cola1Z.imprimirCola());
+//                    break;
+//                case 2:
+//                    cola2Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
+//                  
+//                    break;
+//                case 3:
+//                    cola3Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
+//               
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//            
+//          for (int u=0;u< 10;u++){
+//            switch (interfaz.personajesST[u].nivel) {
+//                case 1:
+//                    cola1SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
+////                    System.out.println("Contenido de la cola 1 sf: " + cola1SF.imprimirCola());
+//                    break;
+//                case 2:
+//                    cola2SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
+//              
+//                    break;
+//                case 3:
+//                    cola3SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
+//                   
+//                    break;
+//                default:
+//                    break;
+//            }
+////       
+//          }
     
        
         
-    }
+//    }
          
          public void asignarColaNuevo(Cola cola1Z, Cola cola2Z, Cola cola3Z, Cola cola1SF, Cola cola2SF, Cola cola3SF){
+         int contadorZ=0;
+         int contadorSF=0;
+         while(contadorZ!=1){
+             if (interfaz.colaPersonajesZelda.isEmpty()==false){
+             Personaje personajeZ = interfaz.colaPersonajesZelda.getPrimero();
+             interfaz.colaPersonajesZelda.deletePersonaje();
          
-               switch (interfaz.personajesZ[i].nivel) {
+               switch (personajeZ.nivel) {
                 case 1:
-                    cola1Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
+                    cola1Z.addPersonaje(personajeZ.id, personajeZ.nombre,personajeZ.sumaTotalHabilidades,personajeZ.counter);
 //                    System.out.println("El personaje de id " + interfaz.personajesZ[i].id + "es de nivel: " + interfaz.personajesZ[i].nivel);
 //                    System.out.println("Contenido de la cola 1 zelda: " + cola1Z.imprimirCola());
-                    System.out.println("valor i antes suma "+i);
-                     System.out.println(interfaz.personajesZ[i].id+ "Nuevo nivel 1 zy estoy en la posicion: "+ i);
-                    i+=1;
+                    
+                    contadorZ+=1;
                    
          
                     break;
                 case 2:
-                    cola2Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
-                    System.out.println("valor i antes suma "+i);
-                     System.out.println(interfaz.personajesZ[i].id+ "Nuevo nivel 2 zy estoy en la posicion: "+ i);
-                    i+=1;
+                    cola2Z.addPersonaje(personajeZ.id, personajeZ.nombre,personajeZ.sumaTotalHabilidades,personajeZ.counter);
+                    
+                    contadorZ+=1;
                  
                        System.out.println("Contenido de la cola 2Z: " + cola1Z.imprimirColaZelda());
                     break;
                 case 3:
-                    cola3Z.addPersonaje(interfaz.personajesZ[i].id, interfaz.personajesZ[i].nombre,interfaz.personajesZ[i].sumaTotalHabilidades,interfaz.personajesZ[i].counter);
-                    System.out.println("valor i antes suma "+i);
-                     System.out.println(interfaz.personajesZ[i].id+ "Nuevo nivel 3 zy estoy en la posicion: "+ i);
-                    i+=1;
+                    cola3Z.addPersonaje(personajeZ.id, personajeZ.nombre,personajeZ.sumaTotalHabilidades,personajeZ.counter);
+                    
+                    contadorZ+=1;
                   
                     break;
                 default:
                     break;
+                    
+                    
+                    
+                    }
                    
             }
-               switch (interfaz.personajesST[u].nivel) {
+         }
+         while(contadorSF!=1){
+             if (interfaz.colaPersonajesSF.isEmpty()==false){
+             Personaje personajeSF = interfaz.colaPersonajesSF.getPrimero();
+             interfaz.colaPersonajesSF.deletePersonaje();
+               switch (personajeSF.nivel) {
                 case 1:
-                    cola1SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
+                    cola1SF.addPersonaje(personajeSF.id, personajeSF.nombre,personajeSF.sumaTotalHabilidades,personajeSF.counter);
                     System.out.println("valor i antes suma "+u);
 //                    System.out.println("Contenido de la cola 1 sf: " + cola1SF.imprimirCola());
-                     System.out.println(interfaz.personajesZ[u].id+ "Nuevo nivel 1 sf y estoy en la posicion: "+ u);
-                    u+=1;
+                     System.out.println(personajeSF.id+ "Nuevo nivel 1 sf y estoy en la posicion: "+ contadorSF);
+                    contadorSF+=1;
       
                     break;
                 case 2:
-                    cola2SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
+                    cola2SF.addPersonaje(personajeSF.id, personajeSF.nombre,personajeSF.sumaTotalHabilidades,personajeSF.counter);
                     System.out.println("valor i antes suma "+u);
-                 System.out.println(interfaz.personajesZ[u].id+ "Nuevo nivel 2 sf y estoy en la posicion: "+ u);
-                    u+=1;
+                 System.out.println(personajeSF.id+ "Nuevo nivel 2 sf y estoy en la posicion: "+ contadorSF);
+                    contadorSF+=1;
             
                     break;
                 case 3:
-                    cola3SF.addPersonaje(interfaz.personajesST[u].id, interfaz.personajesST[u].nombre,interfaz.personajesST[u].sumaTotalHabilidades,interfaz.personajesST[u].counter);
-                   System.out.println(interfaz.personajesZ[u].id+ "Nuevo nivel 3 sf y estoy en la posicion: "+ u);
-                   u+=1;
+                    cola3SF.addPersonaje(personajeSF.id, personajeSF.nombre,personajeSF.sumaTotalHabilidades,personajeSF.counter);
+                   System.out.println(personajeSF.id+ "Nuevo nivel 3 sf y estoy en la posicion: "+ contadorSF);
+                   contadorSF+=1;
          
                     break;
                 default:
@@ -133,10 +204,12 @@ import java.util.logging.Logger;
             }
                
          }
+         }
+         }
          
          
          public void nuevoEntra(Cola cola1Z, Cola cola2Z, Cola cola3Z, Cola cola1SF, Cola cola2SF, Cola cola3SF,Inteligencia inteligencia){
-             
+             interfaz.inicializarPersonaje(1);
              if (inteligencia.contadorRonda == 2){
                  
              
@@ -145,6 +218,7 @@ import java.util.logging.Logger;
                     int n = randomNumber.nextInt(100)+1;
                     System.out.println("numero random 80%" + n);
                 if (n <=80){
+
                 this.asignarColaNuevo(cola1Z, cola2Z, cola3Z, cola1SF, cola2SF, cola3SF);
                 inteligencia.contadorRonda =0;
                 interfaz.visualizarColas();
@@ -253,8 +327,11 @@ import java.util.logging.Logger;
                 
                 colaRZ.deletePersonaje();
                 colaRSF.deletePersonaje();
+                    
                 cola1Z.addPersonaje(pZelda.id, pZelda.nombre, pZelda.sumaTotalHabilidades, pZelda.counter);
+                System.out.println("id de personaje que salio cola de recuerzo zelda: "+pZelda.id);
                 cola1SF.addPersonaje(pSF.id, pSF.nombre, pSF.sumaTotalHabilidades, pSF.counter);
+                System.out.println("id de personaje que salio cola de recuerzo zelda: "+pSF.id);
                
                  }else{
                 colaRZ.deletePersonaje();
@@ -264,6 +341,7 @@ import java.util.logging.Logger;
                 }
             }
     }
+        //holaaa
         
         public void moverNivel(Cola cola1Z, Cola cola2Z, Cola cola3Z, Cola cola1SF, Cola cola2SF, Cola cola3SF){
         int tamanocola3z = cola3Z.getTamano();

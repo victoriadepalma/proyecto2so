@@ -23,7 +23,7 @@ public class Cola {
         this.primero = primero;
         this.ultimo = ultimo;
     }
-
+//holaaa1
     public int getTamano() {
         return tamano;
     }

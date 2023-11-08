@@ -23,6 +23,7 @@ public class Inteligencia extends Thread {
     int contadorSF;
     int contadorZ;
     int contadorRonda;
+    int cont;
     Interfaz interfaz;
      Cola cola1Z;
    Cola cola2Z;
@@ -65,7 +66,7 @@ public class Inteligencia extends Thread {
         System.out.println("Esperando");
         interfaz.txtEstadoIA.setText("Esperando");
         
-           
+           //holaaa1
 //            Random randomNumber= new Random();
 //              int numeroR = randomNumber.nextInt(2);
 ////              System.out.println("el numero random es " + numeroRandom);
@@ -227,10 +228,13 @@ public class Inteligencia extends Thread {
      }
 
          contadorRonda ++;
+         cont++;
+         
          admin.moverNivel(cola1Z, cola2Z, cola3Z, cola1SF, cola2SF, cola3SF);
        admin.actualizarColasResfuerzo(cola1Z, cola1SF, colaRZ, colaRSF);
        
                System.out.println("contador ronda: " +contadorRonda);
+               System.out.println("contador de victoria inncesario: " +cont);
         
         admin.nuevoEntra(cola1Z, cola2Z, cola3Z, cola1SF, cola2SF, cola3SF, this);
         Thread.sleep(1000);             
@@ -245,3 +249,4 @@ public class Inteligencia extends Thread {
 }
    
 } 
+
