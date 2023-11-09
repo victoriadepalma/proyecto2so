@@ -91,64 +91,64 @@ public class Personaje  {
     public String asignarImagen(String nombre) {
          String rutaImagen="";
          if(nombre=="Link"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/link.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/link.png";
     
          }else if(nombre=="Princesa Zelda"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/princesa_zelda.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/princesa_zelda.png";
              
          }else if(nombre=="Ganondorf"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/ganondorf.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/ganondorf.png";
              
          }else if(nombre=="Impa"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/impa.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/impa.png";
              
          }else if(nombre=="Darunia"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/darunia.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/darunia.png";
              
          }else if(nombre=="Tingle"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/tingle.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/tingle.png";
              
          }else if(nombre=="Navi"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/navi.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/navi.png";
              
          }else if(nombre=="Sheik"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/sheik.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/sheik.png";
              
          }else if(nombre=="Epona"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/epona.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/epona.png";
              
          }else if(nombre=="Rauru"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/rauru.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/rauru.png";
              
          }else if(nombre=="Ryu"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/ryu.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/ryu.png";
              
          }else if(nombre=="M.Bison"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/mbison.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/mbison.png";
              
          }else if(nombre=="Zangief"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/zangief.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/zangief.png";
              
          }else if(nombre=="Akuma"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/akuma.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/akuma.png";
              
          }else if(nombre=="Guile"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/guile.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/guile.png";
              
          }else if(nombre=="Gouken"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/gouken.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/gouken.png";
              
          }else if(nombre=="Chun-Li"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/chun-li.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/chun-li.png";
              
          }else if(nombre=="Menat"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/menat.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/menat.png";
              
          }else if(nombre=="Juni"){
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/juni.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/juni.png";
              
          }else{
-             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2so/proyecto2so/src/proyecto2so/images/blanka.png";
+             rutaImagen="/Users/dianasilvadeornelas/Desktop/proyecto2soFINAL/proyecto2so/src/proyecto2so/images/blanka.png";
          }return rutaImagen;
  
         

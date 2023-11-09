@@ -22,7 +22,7 @@ public class SoundHandler {
         AudioInputStream inputStream=AudioSystem.getAudioInputStream(new File(path));
         Clip clip=AudioSystem.getClip();
         clip.open(inputStream);
-        clip.loop(0);
+        clip.loop(1);
         
         }catch(UnsupportedAudioFileException | IOException | LineUnavailableException e){
         }
